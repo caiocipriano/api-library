@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
@@ -24,4 +24,8 @@ public class Client extends Person{
 	      super();
 	      this.dateBorn = dateBorn;
 	  }
+	 
+	 @OneToOne
+	 private Address address;
+	 
 }
