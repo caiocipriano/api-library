@@ -26,7 +26,6 @@ public abstract class Person implements Serializable{
 	
     @Column(length = 50)
     @NotBlank(message = "CPF da Pessoa deve ser preenchido")
-    @Size(min = 2, max = 50, message = "CPF da Pessoa deve ter entre 2 e 50 letras")
     @Pattern(regexp="\\d{3}.\\d{3}.\\d{3}-\\d{2}", message = "CPF da Pessoa deve seguir o padrão NNN.NNN.NNN-NN")
 	private String cpf;
     
