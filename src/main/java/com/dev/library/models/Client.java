@@ -12,6 +12,7 @@ import lombok.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
 public class Client extends Person{
 	private static final long serialVersionUID = 1L;
 	
