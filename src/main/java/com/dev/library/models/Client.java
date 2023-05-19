@@ -26,7 +26,5 @@ public class Client extends Person{
 	      this.dateBorn = dateBorn;
 	  }
 	 
-	 @OneToOne
-	 private Address address;
 	 
 }
