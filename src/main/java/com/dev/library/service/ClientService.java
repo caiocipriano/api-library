@@ -1,8 +1,8 @@
 package com.dev.library.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.dev.library.models.Client;
 import com.dev.library.repositories.ClientRepository;
@@ -14,7 +14,12 @@ public class ClientService {
 	private ClientRepository repository;
 	
 
-	public Client post( Client client) {
-		return repository.save(client);
-	}
+	public Client post( Client client){ 
+		try {
+			return repository.save(client);
+    } catch (DataIntegrityViolationException e) {
+        throw new DataIntegrityViolationException("Campo(s) obrigatório(s) do Cliente não foi(foram) preenchido(s): Bairro ou Telefone");
+    }
+  }
 }
+
