@@ -1,5 +1,7 @@
 package com.dev.library.models;
 
+import java.io.Serializable;
+
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -10,12 +12,12 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Address {
+public class Address implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(length=50)
@@ -31,7 +33,8 @@ public class Address {
 	@NotNull(message="O campo de cidade precisa ser preechido")
 	private String city;
 	
-	
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="client_id",referencedColumnName = "id")
 	private Client client;
+	
 }
