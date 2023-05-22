@@ -9,22 +9,32 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@EqualsAndHashCode(callSuper = false)
 public class Client extends Person{
-	private static final long serialVersionUID = 1L;
 	
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@NotNull(message="O campo de data não pode ser vazio")
 	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date dateBorn;
 	
-	 @Builder
-	 public Client(Integer id, String name, String cpf, String phone, Date dateBorn) {
-	      super();
-	      this.dateBorn = dateBorn;
-	  }
-	 
+	
+
+	public Client(String name, String cpf, String phone,Date dateBorn) {
+		super(name, cpf, phone);
+		this.dateBorn=dateBorn;
+	}
+
+	public Date getDateBorn() {
+		return dateBorn;
+	}
+
+	public void setDateBorn(Date dateBorn) {
+		this.dateBorn = dateBorn;
+	}
+
+
 	 
 }
