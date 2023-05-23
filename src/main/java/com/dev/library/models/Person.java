@@ -18,19 +18,33 @@ public abstract class Person implements Serializable{
 	private Integer id;
 	
 	@Column(length=50)
+	@NotBlank(message = "Nome da Pessoa deve ser preenchido")
+    @Size(min = 2, max = 50, message = "Nome da Pessoa deve ter entre 2 e 50 letras")
 	private String name;
 	
 	
-    @Column(length = 50)
+	@Column(length = 50)
+    @NotBlank(message = "CPF da Pessoa deve ser preenchido")
+    @Size(min = 2, max = 50, message = "CPF da Pessoa deve ter entre 2 e 50 letras")
+    @Pattern(regexp="\\d{3}.\\d{3}.\\d{3}-\\d{2}", message = "CPF da Pessoa deve seguir o padrão NNN.NNN.NNN-NN")
 	private String cpf;
-    
-	private String phone;
 	
+	
+	@Column(length = 50)
+    @NotBlank(message = "Rua da Pessoa deve ser preenchido")
+    @Size(min = 2, max = 50, message = "Rua da Pessoa deve ter entre 2 e 50 letras")
+	private String street;
+	
+    @Digits(integer=4, fraction=0, message = "Número da Casa da Pessoa deve ser preenchido com um valor inteiro")
+	private int number;
 
-	public Person( String name, String cpf, String phone) {
+	public Person(Integer id,String name, String cpf,String street,int number) {
+		super();
+		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
-		this.phone = phone;
+		this.street = street;
+		this.number = number;
 	}
 
 	public Integer getId() {
@@ -57,18 +71,26 @@ public abstract class Person implements Serializable{
 		this.cpf = cpf;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getStreet() {
+		return street;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
-	
+
+    
 }
 
