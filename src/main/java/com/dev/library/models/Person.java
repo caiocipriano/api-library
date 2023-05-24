@@ -38,59 +38,88 @@ public abstract class Person implements Serializable{
     @Digits(integer=4, fraction=0, message = "Número da Casa da Pessoa deve ser preenchido com um valor inteiro")
 	private int number;
 
-	public Person(Integer id,String name, String cpf,String street,int number) {
+    
+    @NotNull(message = "O Bairro da Pessoa deve ser preenchido")
+    @ManyToOne
+    @JoinColumn(name = "district_id")
+	private District district;
+
+
+	public Person(Integer id,String name,String cpf, String street, int number,District district) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 		this.street = street;
 		this.number = number;
+		this.district = district;
 	}
+
 
 	public Integer getId() {
 		return id;
 	}
 
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 
 	public String getName() {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 
 	public String getCpf() {
 		return cpf;
 	}
 
+
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
 
 	public String getStreet() {
 		return street;
 	}
 
+
 	public void setStreet(String street) {
 		this.street = street;
 	}
+
 
 	public int getNumber() {
 		return number;
 	}
 
+
 	public void setNumber(int number) {
 		this.number = number;
 	}
 
+
+	public District getDistrict() {
+		return district;
+	}
+
+
+	public void setDistrict(District district) {
+		this.district = district;
+	}
+
+
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
+    
     
 }
 
