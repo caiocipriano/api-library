@@ -19,8 +19,8 @@ public class Client extends Person{
 	private Date dateBorn;
 	
 
-	public Client(Integer id,String name,String cpf,String street, int number, Date dateBorn) {
-		super(id, name, cpf, street, number);
+	public Client(Integer id,String name,String cpf,String street, int number, Date dateBorn, District district) {
+		super(id, name, cpf, street, number, district);
 		this.dateBorn = dateBorn;	}
 
 
