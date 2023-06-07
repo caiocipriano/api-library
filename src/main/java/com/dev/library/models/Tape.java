@@ -29,9 +29,7 @@ public class Tape implements Serializable{
 	private Movie movie;
 
 
-	public Tape(Integer id, @NotNull(message = "O atributo de 'Danificada' deve ser preenchido") Boolean damaged,
-			@NotNull(message = "O atributo de 'Disponivel' deve ser preenchido") Boolean available,
-			@NotNull(message = "O Filme da Fita deve ser preenchido") Movie movie) {
+	public Tape(Integer id, Boolean damaged,Boolean available,Movie movie) {
 		super();
 		this.id = id;
 		this.damaged = damaged;

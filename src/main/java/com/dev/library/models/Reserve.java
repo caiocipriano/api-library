@@ -35,10 +35,7 @@ public class Reserve implements Serializable{
 	@JoinColumn(name="client_id")
 	private Client client;
 
-	public Reserve(Integer id, Date date,
-			@Digits(integer = 1, fraction = 0, message = "Status da Reserva deve ser preechido") Integer status,
-			@NotNull(message = "A Fita da Reserva deve ser preenchida") Tape tape,
-			@NotNull(message = "O Cliente da Reserva deve ser preenchido") Client client) {
+	public Reserve(Integer id, Date date, Integer status,Tape tape, Client client) {
 		super();
 		this.id = id;
 		this.date = date;

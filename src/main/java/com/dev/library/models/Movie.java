@@ -38,11 +38,7 @@ public class Movie implements Serializable{
 	private MovieType movieType;
 
 
-	public Movie(Integer id,
-			@NotBlank(message = "Título do Filme deve ser preenchido") @Size(min = 2, max = 50, message = "Título do Filme deve ter entre 2 e 50 letras") String tittle,
-			@NotBlank(message = "Gênero do Filme deve ser preenchido") @Size(min = 2, max = 50, message = "Título do Filme deve ter entre 2 e 50 letras") String gener,
-			@NotBlank(message = "Duração do Filme deve ser preenchido") @Size(min = 2, max = 50, message = "Título do Filme deve ter entre 2 e 50 letras") @Pattern(regexp = "\\d{2}\\:\\d{2}", message = "Duração do Filme deve seguir o formato: hh:mm") String time,
-			@NotNull(message = "Tipo de Filme deve ser preenchido") MovieType movieType) {
+	public Movie(Integer id,String tittle,String gener, String time,MovieType movieType) {
 		super();
 		this.id = id;
 		this.tittle = tittle;

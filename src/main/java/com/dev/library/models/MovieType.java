@@ -25,10 +25,7 @@ public class MovieType implements Serializable {
 	@NotNull(message = "Preço do Tipo de Filme deve ser preenchido")
 	private Double price;
 
-	public MovieType(Integer id,
-			@NotBlank(message = "Nome do Tipo de Filme deve ser preenchido") @Size(min = 2, max = 50, message = "Nome do Tipo de Filme deve ter entre 2 e 50 letras") String name,
-			@Digits(integer = 1, fraction = 0, message = "Prazo do Tipo de Filme deve ser preenchido com um valor inteiro") Integer term,
-			@NotNull(message = "Preço do Tipo de Filme deve ser preenchido") Double price) {
+	public MovieType(Integer id,String name,Integer term,Double price) {
 		super();
 		this.id = id;
 		this.name = name;
